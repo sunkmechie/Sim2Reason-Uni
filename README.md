@@ -16,7 +16,7 @@ Carnegie Mellon University &nbsp;·&nbsp; <sup>λ</sup>Lambda
 [![Arxiv](https://img.shields.io/badge/arXiv-Paper-b31b1b.svg)](http://sim2reason.github.io)
 
 <!-- Teaser -->
-<video src="https://github.com/user-attachments/assets/ac4ed5cb-b1e6-4776-aec8-be711ee808b0
+<video src="https://github.com/user-attachments/assets/250d8b73-9728-46e6-aa4c-3a962a74fbf1
 " autoplay loop muted playsinline width="100%"></video>
 
 </div>
