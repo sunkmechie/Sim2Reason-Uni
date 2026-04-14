@@ -1,0 +1,6 @@
+# @package _global_
+
+solve_locally: True
+use_openrouter: False
+model_name: mihirpd/qwen2.5-3b-rare-glade-1739
+max_model_len: null

@@ -1,0 +1,13 @@
+# @package _global_
+
+use_olympiad_bench: true
+only_mechanics: true
+
+data:
+  val_files: 
+  # - ${oc.env:PHO_DATA}/olympiad_bench/OlympiadBench_Dataset/data/OE_MM_physics_en_COMP.json
+  # - ${oc.env:PHO_DATA}/olympiad_bench/OlympiadBench_Dataset/data/OE_MM_physics_zh_CEE.json
+  - ${oc.env:PHO_DATA}/olympiad_bench/OlympiadBench_Dataset/data/OE_TO_physics_en_COMP.json
+  - ${oc.env:PHO_DATA}/olympiad_bench/OlympiadBench_Dataset/data/OE_TO_physics_zh_CEE.json
+  # - ${oc.env:PHO_DATA}/olympiad_bench/OlympiadBench_Dataset/data/TP_MM_physics_en_COMP.json
+  # - ${oc.env:PHO_DATA}/olympiad_bench/OlympiadBench_Dataset/data/TP_TO_physics_en_COMP.json

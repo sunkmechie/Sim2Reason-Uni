@@ -1,0 +1,67 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.cpython*
+*.egg-info/
+*.eggs/
+dist/
+build/
+
+# ── Environment & IDE ────────────────────────────────────────────────────────
+.venv/
+.vscode/
+.idea/
+.history/
+*DS_Store
+
+# ── Hydra / OmegaConf ────────────────────────────────────────────────────────
+hydra_logs/
+sweep_logs/
+multirun/
+.hydra/
+hydra.yaml
+multirun.yaml
+
+# ── Weights & Biases ─────────────────────────────────────────────────────────
+wandb/
+
+# ── SLURM / job logs ─────────────────────────────────────────────────────────
+slurm_logs/
+slurm_out/
+sbatch_logs/
+*.out
+*.err
+*.log
+
+# ── Generated data & outputs ─────────────────────────────────────────────────
+batch_generation_output/
+scene_data/
+gen_data/
+cot_data/
+generations/
+sim/dsl_output/
+sim/batch_generation_output/
+sim/xml_output/
+sim/geom_sources/generated_sources/
+sim/tests/test_mp4/
+
+# ── Checkpoints & models ─────────────────────────────────────────────────────
+checkpoints/
+checkpoint_flags/
+downloads/
+
+# ── Media & large binary files ────────────────────────────────────────────────
+*.mp4
+*.pkl
+*.arrow
+*.parquet
+*.png
+
+# ── Profiling ─────────────────────────────────────────────────────────────────
+*.nsys-rep
+*.sqlite
+MUJOCO_LOG.txt
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+videos/
+logs/

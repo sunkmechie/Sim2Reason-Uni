@@ -1,0 +1,5 @@
+# @package _global_
+
+solve_locally: False
+use_openrouter: True
+model_name: deepseek/deepseek-chat-v3-0324

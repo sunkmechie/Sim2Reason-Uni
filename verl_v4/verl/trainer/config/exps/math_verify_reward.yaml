@@ -1,0 +1,4 @@
+# @package _global_
+
+reward_model:
+  reward_options: math_verify_numerical_reward

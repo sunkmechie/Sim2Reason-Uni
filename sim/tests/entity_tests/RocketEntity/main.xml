@@ -1,0 +1,98 @@
+<mujoco>
+            <compiler angle="radian" autolimits="true" />
+            <compiler meshdir="asset" texturedir="asset" assetdir="asset" />
+            <option gravity="0 0 0" />
+            <default class="main">
+            <geom friction="0 0 0" solimp="0.9 1 0.001 0.01 20" solref="0.02 1" condim="1" />
+        </default>
+        
+        <visual>
+            <headlight diffuse="0.7 0.7 0.7" ambient="0.5 0.5 0.5" />
+            <global offwidth="1920" offheight="1080" />
+        </visual>
+        
+        <asset>
+            <texture type="skybox" builtin="gradient" rgb1="0 0.5 0.7" rgb2="0 0 0" width="512" height="512" />
+            <texture type="2d" name="checks1" builtin="checker" rgb1="1 1 1" rgb2="0 0 0" width="256" height="256" />
+            <material name="test_color" texture="checks1" texuniform="true" texrepeat="2 2" />
+            <material name="reflectance" reflectance=".4" />
+            <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1="1.0 0.6235 0.1098" rgb2="1.0 0.749 0.4118" />
+            <texture name="white-texture-background" type="2d" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.white-texture-background.png" content_type="image/png" />
+            <material name="pulley" texture="grid" texrepeat="2 2" texuniform="true" />
+            <mesh name="rocket.obj9" scale="0.001 0.001 0.001" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.obj9.obj"> 
+</mesh>
+<mesh name="rocket.obj8" scale="0.001 0.001 0.001" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.obj8.obj"> 
+</mesh>
+<mesh name="rocket.obj11" scale="0.001 0.001 0.001" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.obj11.obj"> 
+</mesh>
+<mesh name="rocket.obj1" scale="0.001 0.001 0.001" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.obj1.obj"> 
+</mesh>
+<material name="rocket.obj6" rgba="0.0000 0.0000 0.0000 1.0000" specular="0.5000" shininess="1.0000" emission="0.0000" />
+<material name="rocket.obj8" rgba="1.0000 1.0000 1.0000 1.0000" specular="0.5000" shininess="1.0000" emission="0.0000" />
+<mesh name="rocket.obj4" scale="0.001 0.001 0.001" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.obj4.obj"> 
+</mesh>
+<mesh name="rocket.obj5" scale="0.001 0.001 0.001" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.obj5.obj"> 
+</mesh>
+<material name="rocket.obj11" rgba="0.0016 0.0042 0.8000 1.0000" specular="0.5000" shininess="1.0000" emission="0.0000" />
+<material name="rocket.obj1" rgba="0.0000 0.0000 0.0000 1.0000" specular="0.5000" shininess="1.0000" emission="0.0000" />
+<material name="rocket.obj13" rgba="0.0000 0.0000 0.0000 1.0000" specular="0.5000" shininess="1.0000" emission="0.0000" />
+<mesh name="rocket.obj12" scale="0.001 0.001 0.001" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.obj12.obj"> 
+</mesh>
+<mesh name="rocket.obj13" scale="0.001 0.001 0.001" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.obj13.obj"> 
+</mesh>
+<material name="rocket.obj3" rgba="0.0000 0.0000 0.0000 1.0000" specular="0.5000" shininess="1.0000" emission="0.0000" />
+<material name="rocket.obj12" rgba="0.8000 0.0070 0.0000 1.0000" specular="0.5000" shininess="1.0000" emission="0.0000" />
+<material name="rocket.obj7" rgba="1.0000 0.1724 0.0441 1.0000" specular="0.5000" shininess="1.0000" emission="0.0000" />
+<material name="rocket.obj5" rgba="0.8000 0.8000 0.8000 1.0000" specular="0.5000" shininess="1.0000" emission="0.0000" />
+<mesh name="rocket.obj7" scale="0.001 0.001 0.001" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.obj7.obj"> 
+</mesh>
+<material name="rocket.obj9" rgba="0.8000 0.8000 0.8000 1.0000" specular="0.5000" shininess="1.0000" emission="0.0000" />
+<material name="rocket.obj10" texture="white-texture-background" rgba="1.0000 1.0000 1.0000 1.0000" specular="0.5000" shininess="1.0000" emission="0.0000" />
+<mesh name="rocket.obj6" scale="0.001 0.001 0.001" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.obj6.obj"> 
+</mesh>
+<mesh name="rocket.obj3" scale="0.001 0.001 0.001" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.obj3.obj"> 
+</mesh>
+<material name="rocket.obj2" rgba="0.3108 0.3108 0.3108 1.0000" specular="0.5000" shininess="1.0000" emission="0.0000" />
+<material name="rocket.obj4" rgba="0.8000 0.8000 0.8000 1.0000" specular="0.5000" shininess="1.0000" emission="0.0000" />
+<mesh name="rocket.obj2" scale="0.001 0.001 0.001" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.obj2.obj"> 
+</mesh>
+<mesh name="rocket.obj10" scale="0.001 0.001 0.001" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.obj10.obj"> 
+</mesh>
+            
+        </asset>
+        <worldbody><body name="rocketentity_0.rocket" pos="0.0 0.0 1.006" quat="1.0 0.0 0.0 0.0"><joint name="rocketentity_0.rocket.joint" type="free" axis="0 0 0" pos="0 0 0" />
+<body name="rocketentity_0.rocket.rocket_geom" pos="0 0 0" quat="0 0 0.7071068 0.7071068"><geom name="rocketentity_0.rocket.rocket_geom.geom0" type="mesh" pos="0 0 0" size="1 1 1" material="rocket.obj1" mass="0" quat="1 0 0 0" mesh="rocket.obj1" contype="0" conaffinity="0" />
+<geom name="rocketentity_0.rocket.rocket_geom.geom1" type="mesh" pos="0 0 0" size="1 1 1" material="rocket.obj2" mass="0" quat="1 0 0 0" mesh="rocket.obj2" contype="0" conaffinity="0" />
+<geom name="rocketentity_0.rocket.rocket_geom.geom2" type="mesh" pos="0 0 0" size="1 1 1" material="rocket.obj3" mass="0" quat="1 0 0 0" mesh="rocket.obj3" contype="0" conaffinity="0" />
+<geom name="rocketentity_0.rocket.rocket_geom.geom3" type="mesh" pos="0 0 0" size="1 1 1" material="rocket.obj4" mass="0" quat="1 0 0 0" mesh="rocket.obj4" contype="0" conaffinity="0" />
+<geom name="rocketentity_0.rocket.rocket_geom.geom4" type="mesh" pos="0 0 0" size="1 1 1" material="rocket.obj5" mass="0" quat="1 0 0 0" mesh="rocket.obj5" contype="0" conaffinity="0" />
+<geom name="rocketentity_0.rocket.rocket_geom.geom5" type="mesh" pos="0 0 0" size="1 1 1" material="rocket.obj6" mass="0" quat="1 0 0 0" mesh="rocket.obj6" contype="0" conaffinity="0" />
+<geom name="rocketentity_0.rocket.rocket_geom.geom6" type="mesh" pos="0 0 0" size="1 1 1" material="rocket.obj7" mass="0" quat="1 0 0 0" mesh="rocket.obj7" contype="0" conaffinity="0" />
+<geom name="rocketentity_0.rocket.rocket_geom.geom7" type="mesh" pos="0 0 0" size="1 1 1" material="rocket.obj8" mass="0" quat="1 0 0 0" mesh="rocket.obj8" contype="0" conaffinity="0" />
+<geom name="rocketentity_0.rocket.rocket_geom.geom8" type="mesh" pos="0 0 0" size="1 1 1" material="rocket.obj9" mass="0" quat="1 0 0 0" mesh="rocket.obj9" contype="0" conaffinity="0" />
+<geom name="rocketentity_0.rocket.rocket_geom.geom9" type="mesh" pos="0 0 0" size="1 1 1" material="rocket.obj10" mass="0" quat="1 0 0 0" mesh="rocket.obj10" contype="0" conaffinity="0" />
+<geom name="rocketentity_0.rocket.rocket_geom.geom10" type="mesh" pos="0 0 0" size="1 1 1" material="rocket.obj11" mass="0" quat="1 0 0 0" mesh="rocket.obj11" contype="0" conaffinity="0" />
+<geom name="rocketentity_0.rocket.rocket_geom.geom11" type="mesh" pos="0 0 0" size="1 1 1" material="rocket.obj12" mass="0" quat="1 0 0 0" mesh="rocket.obj12" contype="0" conaffinity="0" />
+<geom name="rocketentity_0.rocket.rocket_geom.geom12" type="mesh" pos="0 0 0" size="1 1 1" material="rocket.obj13" mass="0" quat="1 0 0 0" mesh="rocket.obj13" contype="0" conaffinity="0" />
+<inertial pos="0.0 0.0 0.0" mass="0.0" diaginertia="0.0 0.0 0.0" />
+</body>
+<body name="rocketentity_0.rocket.collision_geom" pos="0 0 0.015" quat="1 0 0 0"><geom name="rocketentity_0.rocket.collision_geom.geom" type="cylinder" pos="0 0 0" size="0.002 0.015" material="pulley" rgba="0 0 0 0" mass="0.109" quat="0 0 0 1" contype="1" conaffinity="1" />
+</body>
+</body>
+<body name="rocketentity_0.planet" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0"><geom name="rocketentity_0.planet.geom" type="sphere" pos="0 0 0" size="0.98588" material="reflectance" rgba="0.7487201153855946 0.48649569803143317 0.3113726846344439 1.0" mass="2165.36" quat="0 0 0 1" contype="1" conaffinity="1" />
+<site name="rocketentity_0.planet.site" pos="0 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="rocketentity_0.planet.center_site" pos="0 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+</body>
+</worldbody><sensor>
+            
+        </sensor>
+        <custom>
+            
+        </custom>
+        <contact>
+            
+        </contact>
+        <actuator>
+            
+        </actuator>
+    </mujoco>

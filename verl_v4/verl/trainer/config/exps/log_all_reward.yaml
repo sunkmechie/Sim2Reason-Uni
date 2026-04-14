@@ -1,0 +1,13 @@
+# @package _global_
+
+reward_model:
+  reward_config:
+    # Additional keyword arguments for the reward model
+    # Example: {"train_reward_fn": [fn_1, fn_2], "val_reward_fn": fn1, fn2}
+    # This can be used to pass any extra parameters needed by the reward model.
+    # Multi reward train not supported yet
+    train_reward_fn: "final_reward_function"
+    val_reward_fns: 
+    - "final_reward_function"
+    - "reward_conf3"
+    - "val_reward_fn"

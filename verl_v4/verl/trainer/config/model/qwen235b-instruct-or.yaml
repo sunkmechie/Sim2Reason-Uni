@@ -1,0 +1,6 @@
+# @package _global_
+
+solve_locally: False
+use_openrouter: True
+model_name: qwen/qwen3-235b-a22b-2507
+max_model_len: null

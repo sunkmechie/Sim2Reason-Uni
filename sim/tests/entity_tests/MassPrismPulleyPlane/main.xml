@@ -1,0 +1,84 @@
+<mujoco>
+            <compiler angle="radian" autolimits="true" />
+            <compiler meshdir="asset" texturedir="asset" assetdir="asset" />
+            <option gravity="0 0 -9.81" />
+            <default class="main">
+            <geom friction="0 0 0" solimp="0.9 1 0.001 0.01 20" solref="0.02 1" condim="1" />
+        </default>
+        
+        <visual>
+            <headlight diffuse="0.7 0.7 0.7" ambient="0.5 0.5 0.5" />
+            <global offwidth="1920" offheight="1080" />
+        </visual>
+        
+        <asset>
+            <texture type="skybox" builtin="gradient" rgb1="0 0.5 0.7" rgb2="0 0 0" width="512" height="512" />
+            <texture type="2d" name="checks1" builtin="checker" rgb1="1 1 1" rgb2="0 0 0" width="256" height="256" />
+            <material name="test_color" texture="checks1" texuniform="true" texrepeat="2 2" />
+            <material name="reflectance" reflectance=".4" />
+            <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1="1.0 0.6235 0.1098" rgb2="1.0 0.749 0.4118" />
+            <texture name="white-texture-background" type="2d" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.white-texture-background.png" content_type="image/png" />
+            <material name="pulley" texture="grid" texrepeat="2 2" texuniform="true" />
+            
+            
+        </asset>
+        <worldbody><body name="massprismpulleyplane_0.plane" pos="0.0 0.0 0.0" quat="0.9659258262890683 0.0 -0.25881904510252074 0.0"><geom name="massprismpulleyplane_0.plane.geom" type="box" pos="0 0 0" size="100 0.4 0.1" material="reflectance" rgba="0.82745098 0.75686275 0.76470588 1" mass="1.0" quat="0 0 0 1" condim="1" contype="1" conaffinity="1" />
+<site name="massprismpulleyplane_0.plane.sensor" pos="0 0 0" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="massprismpulleyplane_0.plane.left" pos="-100.05 0 0.2" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="massprismpulleyplane_0.plane.right" pos="100.05 0 0.2" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+</body>
+<body name="massprismpulleyplane_0.prism" pos="-2.5999999999999996 0.0 4.503332099679081" quat="0.9659258262890683 0.0 -0.25881904510252074 0.0"><geom name="massprismpulleyplane_0.prism.geom_bottom" type="box" pos="-1.0566243270259357 0.0 -5.0" size="3.9433756729740654 0.15 0.1" rgba="0.70588235 0.62352941 0.8 1" mass="1.1033333333333333" quat="1 0 0 0" condim="1" contype="1" conaffinity="1" />
+<geom name="massprismpulleyplane_0.prism.geom_left" type="box" pos="-2.5000000000000004 0.0 -2.5" size="3.535533905932738 0.15 0.1" rgba="0.70588235 0.62352941 0.8 1" mass="1.1033333333333333" quat="0.9238795325112867 0.0 -0.3826834323650898 0.0" condim="1" contype="1" conaffinity="1" />
+<geom name="massprismpulleyplane_0.prism.geom_right" type="box" pos="1.4433756729740648 0.0 -2.5" size="2.886751345948129 0.15 0.1" rgba="0.70588235 0.62352941 0.8 1" mass="1.1033333333333333" quat="0.8660254037844387 0.0 0.49999999999999994 0.0" condim="1" contype="1" conaffinity="1" />
+<site name="massprismpulleyplane_0.prism.sensor" pos="0 0 -2.5" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="massprismpulleyplane_0.prism.left" pos="-5.000000000000001 0 -5" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="massprismpulleyplane_0.prism.right" pos="2.8867513459481295 0 -5" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="massprismpulleyplane_0.prism.top" pos="0 0 0" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="massprismpulleyplane_0.prism.left_top_site" pos="-0.14142135623730967 0.0 0.1414213562373096" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="massprismpulleyplane_0.prism.right_top_site" pos="0.17320508075688779 0.0 0.09999999999999992" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<joint name="massprismpulleyplane_0.prism.joint" type="free" axis="1 1 1" pos="0 0 0" />
+</body>
+<body name="massprismpulleyplane_0.mass_left" pos="-3.708248674718911 0.0 1.1400323992384886" quat="0.7933533402912352 0.0 -0.6087614290087207 0.0">
+<geom name="massprismpulleyplane_0.mass_left.geom" type="box" pos="0 0 0" size="0.1 0.1 0.1" rgba="1.0 0.5 0.5 1.0" mass="2.97" quat="0 0 0 1" condim="1" contype="1" conaffinity="1" />
+<site name="massprismpulleyplane_0.mass_left.top-1" pos="0.0 0 0.1" quat="0.7933533402912352 -0.0 0.6087614290087207 -0.0" />
+<site name="massprismpulleyplane_0.mass_left.sensor" pos="0 0 0" quat="0.7933533402912352 -0.0 0.6087614290087207 -0.0" />
+<site name="massprismpulleyplane_0.mass_left.center" pos="0 0 0" quat="0.7933533402912352 -0.0 0.6087614290087207 -0.0" />
+<site name="massprismpulleyplane_0.mass_left.left" pos="-0.1 0 0" quat="0.7933533402912352 -0.0 0.6087614290087207 -0.0" />
+<site name="massprismpulleyplane_0.mass_left.right" pos="0.1 0 0" quat="0.7933533402912352 -0.0 0.6087614290087207 -0.0" />
+<site name="massprismpulleyplane_0.mass_left.bottom" pos="0 0 -0.1" quat="0.7933533402912352 -0.0 0.6087614290087207 -0.0" />
+<joint name="massprismpulleyplane_0.mass_left.joint" type="free" axis="1 1 1" pos="0 0 0" />
+</body>
+<body name="massprismpulleyplane_0.mass_right" pos="8.881784197001252e-16 0.0 3.2331615074619044" quat="0.9659258262890683 0.0 0.25881904510252074 0.0">
+<geom name="massprismpulleyplane_0.mass_right.geom" type="box" pos="0 0 0" size="0.1 0.1 0.1" rgba="0.5 0.5 1.0 1.0" mass="2.08" quat="0 0 0 1" condim="1" contype="1" conaffinity="1" />
+<site name="massprismpulleyplane_0.mass_right.top-1" pos="0.0 0 0.1" quat="0.9659258262890683 -0.0 -0.25881904510252074 -0.0" />
+<site name="massprismpulleyplane_0.mass_right.sensor" pos="0 0 0" quat="0.9659258262890683 -0.0 -0.25881904510252074 -0.0" />
+<site name="massprismpulleyplane_0.mass_right.center" pos="0 0 0" quat="0.9659258262890683 -0.0 -0.25881904510252074 -0.0" />
+<site name="massprismpulleyplane_0.mass_right.left" pos="-0.1 0 0" quat="0.9659258262890683 -0.0 -0.25881904510252074 -0.0" />
+<site name="massprismpulleyplane_0.mass_right.right" pos="0.1 0 0" quat="0.9659258262890683 -0.0 -0.25881904510252074 -0.0" />
+<site name="massprismpulleyplane_0.mass_right.bottom" pos="0 0 -0.1" quat="0.9659258262890683 -0.0 -0.25881904510252074 -0.0" />
+<joint name="massprismpulleyplane_0.mass_right.joint" type="free" axis="1 1 1" pos="0 0 0" />
+</body>
+
+        </worldbody><tendon>
+<spatial name="massprismpulleyplane_0.massprismpulleyplane_0.ready_tendon-0" width="0.01" rgba="0.9686 0.8392 0.8784 1" range="0 6.739626587997361" limited="true" solimplimit="0.99 1 0.001 0.01 20" solreflimit="0.02 1">
+<site site="massprismpulleyplane_0.mass_left.center" />
+<site site="massprismpulleyplane_0.prism.left_top_site" />
+<site site="massprismpulleyplane_0.prism.right_top_site" />
+<site site="massprismpulleyplane_0.mass_right.center" />
+</spatial>
+</tendon>
+
+        
+        <sensor>
+            
+        </sensor>
+        <custom>
+            
+        </custom>
+        <contact>
+            
+        </contact>
+        <actuator>
+            
+        </actuator>
+    </mujoco>

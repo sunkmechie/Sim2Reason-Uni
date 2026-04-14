@@ -1,0 +1,7 @@
+# @package _global_
+
+solve_locally: False
+use_openrouter: True
+use_azure: False
+model_name: qwen/qwen-2.5-72b-instruct:free
+max_model_len: null

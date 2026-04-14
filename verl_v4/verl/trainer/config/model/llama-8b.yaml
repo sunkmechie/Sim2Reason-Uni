@@ -1,0 +1,5 @@
+# @package _global_
+
+solve_locally: True
+use_openrouter: False
+model_name: meta-llama/Llama-3.1-8B-Instruct

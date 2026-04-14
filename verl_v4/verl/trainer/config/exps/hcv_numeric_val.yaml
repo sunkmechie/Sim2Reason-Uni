@@ -1,0 +1,6 @@
+# @package _global_
+
+
+data:
+  val_files: 
+  - ${oc.env:PHO_DATA}/hcv_ipho_full/hcv_numeric_validation.parquet

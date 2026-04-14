@@ -1,0 +1,8 @@
+# @package _global_
+
+kl_loss_coef: 0.001
+
+actor_rollout_ref:
+  actor:
+    use_kl_loss: True
+    kl_loss_coef: ${kl_loss_coef}

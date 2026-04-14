@@ -1,0 +1,59 @@
+<mujoco>
+            <compiler angle="radian" autolimits="true" />
+            <compiler meshdir="asset" texturedir="asset" assetdir="asset" />
+            <option gravity="0 0 -9.81" />
+            <default class="main">
+            <geom friction="0 0 0" solimp="0.9 1 0.001 0.01 20" solref="0.02 1" condim="1" />
+        </default>
+        
+        <visual>
+            <headlight diffuse="0.7 0.7 0.7" ambient="0.5 0.5 0.5" />
+            <global offwidth="1920" offheight="1080" />
+        </visual>
+        <extension>
+            <plugin plugin="mujoco.sdf.sdflib">
+                <instance name="sdf">
+                    <config key="aabb" value="0" />
+                </instance>
+            </plugin>
+        </extension>
+        <option sdf_iterations="20" sdf_initpoints="40" />
+        <asset>
+            <texture type="skybox" builtin="gradient" rgb1="0 0.5 0.7" rgb2="0 0 0" width="512" height="512" />
+            <texture type="2d" name="checks1" builtin="checker" rgb1="1 1 1" rgb2="0 0 0" width="256" height="256" />
+            <material name="test_color" texture="checks1" texuniform="true" texrepeat="2 2" />
+            <material name="reflectance" reflectance=".4" />
+            <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1="1.0 0.6235 0.1098" rgb2="1.0 0.749 0.4118" />
+            <texture name="white-texture-background" type="2d" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.white-texture-background.png" content_type="image/png" />
+            <material name="pulley" texture="grid" texrepeat="2 2" texuniform="true" />
+            <mesh name="bowl_r0.27_h0.11_t0.23" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/generated_sources/bowl_r0.27_h0.11_t0.23.stl"> 
+<plugin instance="sdf" />
+</mesh>
+            
+        </asset>
+        <worldbody><body name="rollingplaneentity_0.plane" pos="0.0 0.0 0.0" quat="1.0 0.0 0.0 0.0"><geom name="rollingplaneentity_0.plane.geom" type="box" pos="0 0 0" size="100 4.0 0.1" material="reflectance" rgba="0.82745098 0.75686275 0.76470588 1" mass="1.0" quat="0 0 0 1" condim="1" contype="1" conaffinity="1" />
+  <site name="rollingplaneentity_0.plane.sensor" pos="0 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+  <site name="rollingplaneentity_0.plane.left" pos="-100.05 0 0.2" quat="1.0 -0.0 -0.0 -0.0" />
+  <site name="rollingplaneentity_0.plane.right" pos="100.05 0 0.2" quat="1.0 -0.0 -0.0 -0.0" />
+  </body>
+  <body name="rollingplaneentity_0.mesh_body" pos="0.0 0.0 0.37" quat="0.9659258262890683 0.0 -0.25881904510252074 0.0"><geom name="rollingplaneentity_0.mesh_body.geom" type="mesh" pos="0 0 0" size="1 1 1" material="pulley" rgba="0.8 0.8 0.8 1.0" mass="1" quat="1 0 0 0" mesh="bowl_r0.27_h0.11_t0.23" contype="1" conaffinity="1">
+  <plugin instance="sdf" />
+  </geom>
+  <site name="rollingplaneentity_0.mesh_body.center_site" pos="0 0 0" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+  <site name="rollingplaneentity_0.mesh_body.center" pos="0 0 0" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+  <joint name="rollingplaneentity_0.joint" type="free" axis="1 1 1" pos="0 0 0" />
+  </body>
+</worldbody><sensor>
+            
+        </sensor>
+        <custom>
+            <text name="coefficient_friction" data="(rollingplaneentity_0.plane.geom, rollingplaneentity_0.mesh_body.geom, 0.85, 0.85, 1)-(rollingplaneentity_0.plane.geom, rollingplaneentity_0.mass.geom, 0.85, 0.85, 0)" />
+
+        </custom>
+        <contact>
+            
+        </contact>
+        <actuator>
+            
+        </actuator>
+    </mujoco>

@@ -1,0 +1,6 @@
+# @package _global_
+
+solve_locally: True
+use_openrouter: False
+model_name: Qwen/Qwen3-Next-80B-A3B-Instruct
+max_model_len: null

@@ -1,0 +1,6 @@
+# @package _global_
+
+solve_locally: False
+use_openrouter: True
+model_name: qwen/qwen3-30b-a3b-thinking-2507
+max_model_len: null

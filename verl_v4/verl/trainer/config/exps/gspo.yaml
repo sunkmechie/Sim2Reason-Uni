@@ -1,0 +1,9 @@
+# @package _global_
+
+actor_rollout_ref:
+  actor:
+    policy_loss:
+      loss_mode: gspo
+    loss_agg_mode: seq-mean-token-mean
+    clip_ratio_low: 0.0003
+    clip_ratio_high: 0.0004

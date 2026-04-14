@@ -1,0 +1,5 @@
+# @package _global_
+
+solve_locally: False
+model_name: o3
+num_generations_per_problem: 1

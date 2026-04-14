@@ -1,0 +1,6 @@
+# @package _global_
+
+max_num_gen_batches: -1
+
+data:
+  val_files:  ${oc.env:PHO_DATA}/hcv_ipho_full/ipho_numeric_validation.parquet

@@ -1,0 +1,6 @@
+# @package _global_
+
+solve_locally: True
+use_openrouter: False
+model_name: google/gemma-3-27b-it
+max_model_len: 8192

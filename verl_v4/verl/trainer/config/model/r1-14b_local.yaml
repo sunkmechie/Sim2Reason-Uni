@@ -1,0 +1,6 @@
+# @package _global_
+
+solve_locally: True
+use_openrouter: False
+model_name: deepseek-ai/DeepSeek-R1-Distill-Qwen-14B
+max_model_len: 74000

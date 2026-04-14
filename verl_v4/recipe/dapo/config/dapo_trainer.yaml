@@ -1,0 +1,56 @@
+hydra:
+  searchpath:
+    - file://verl_v4/verl/trainer/config
+
+defaults:
+  - ppo_trainer
+  - _self_
+  - /exps: []  
+  - /model: []  
+
+
+enable_overlong_buffer: False
+overlong_buffer_len: 0
+overlong_penalty_factor: 0.0
+enable_filter_groups: False
+filter_groups_metric: seq_reward
+max_num_gen_batches: 0
+
+data:
+  gen_batch_size: ${data.train_batch_size}
+  train_files: 
+  - ${oc.env:PHO_DATA}/v13_fix/train_new_v13_fix.parquet
+  val_files: 
+  - ${oc.env:PHO_DATA}/v13_fix/test_new_v13_fix.parquet
+  - ${oc.env:PHO_DATA}/hcv_ipho_full/hcv_ipho_full_test.parquet  
+
+
+reward_model:
+  reward_manager: dapo
+  reward_config:
+    # Additional keyword arguments for the reward model
+    # Example: {"train_reward_fn": [fn_1, fn_2], "val_reward_fn": fn1, fn2}
+    # This can be used to pass any extra parameters needed by the reward model.
+    # Multi reward train not supported yet
+    train_reward_fn: "final_reward_function"
+    val_reward_fns: 
+    - "final_reward_function"
+    - "reward_conf1"
+    - "reward_conf2"
+    - "reward_conf3"
+    - "fast_reward"
+  overlong_buffer: 
+    enable: ${enable_overlong_buffer} # We try to avoid forgetting to set enable
+    len: ${overlong_buffer_len}
+    penalty_factor: ${overlong_penalty_factor}
+    log: False
+
+algorithm:
+  filter_groups:
+    _target_: verl.trainer.config.FilterGroupsConfig
+    enable: ${enable_filter_groups} # We try to avoid forgetting to set enable
+    metric: ${filter_groups_metric} # acc / score / seq_reward / seq_final_reward / ...
+    max_num_gen_batches: ${max_num_gen_batches} # Non-positive values mean no upper limit
+
+trainer:
+  project_name: verl-dapo

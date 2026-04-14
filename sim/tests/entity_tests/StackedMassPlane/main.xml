@@ -1,0 +1,106 @@
+<mujoco>
+            <compiler angle="radian" autolimits="true" />
+            <compiler meshdir="asset" texturedir="asset" assetdir="asset" />
+            <option gravity="0 0 -9.81" />
+            <default class="main">
+            <geom friction="0 0 0" solimp="0.9 1 0.001 0.01 20" solref="0.02 1" condim="1" />
+        </default>
+        
+        <visual>
+            <headlight diffuse="0.7 0.7 0.7" ambient="0.5 0.5 0.5" />
+            <global offwidth="1920" offheight="1080" />
+        </visual>
+        
+        <asset>
+            <texture type="skybox" builtin="gradient" rgb1="0 0.5 0.7" rgb2="0 0 0" width="512" height="512" />
+            <texture type="2d" name="checks1" builtin="checker" rgb1="1 1 1" rgb2="0 0 0" width="256" height="256" />
+            <material name="test_color" texture="checks1" texuniform="true" texrepeat="2 2" />
+            <material name="reflectance" reflectance=".4" />
+            <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1="1.0 0.6235 0.1098" rgb2="1.0 0.749 0.4118" />
+            <texture name="white-texture-background" type="2d" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.white-texture-background.png" content_type="image/png" />
+            <material name="pulley" texture="grid" texrepeat="2 2" texuniform="true" />
+            
+            
+        </asset>
+        <worldbody><body name="stackedmassplane_0.mass0" pos="-0.1 0.0 0.17320508075688776" quat="0.9659258262890683 0.0 -0.25881904510252074 0.0">
+<geom name="stackedmassplane_0.mass0.geom" type="box" pos="0 0 0" size="20.0 0.1 0.1" rgba="1.0 0.5 0.5 1.0" mass="6.29" quat="0 0 0 1" condim="1" contype="1" conaffinity="1" />
+<site name="stackedmassplane_0.mass0.top-1" pos="0.0 0 0.1" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="stackedmassplane_0.mass0.sensor" pos="0 0 0" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="stackedmassplane_0.mass0.center" pos="0 0 0" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="stackedmassplane_0.mass0.left" pos="-20.0 0 0" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="stackedmassplane_0.mass0.right" pos="20.0 0 0" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="stackedmassplane_0.mass0.bottom" pos="0 0 -0.1" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<joint name="stackedmassplane_0.mass0.joint" type="free" axis="1 1 1" pos="0 0 0" />
+</body>
+<body name="stackedmassplane_0.mass1" pos="-0.175 0.0 0.30310889132455354" quat="0.9659258262890683 0.0 -0.25881904510252074 0.0">
+<geom name="stackedmassplane_0.mass1.geom" type="box" pos="0 0 0" size="10.0 0.05 0.05" rgba="1.0 0.5 0.5 1.0" mass="1.08" quat="0 0 0 1" condim="1" contype="1" conaffinity="1" />
+<site name="stackedmassplane_0.mass1.top-1" pos="0.0 0 0.05" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="stackedmassplane_0.mass1.sensor" pos="0 0 0" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="stackedmassplane_0.mass1.center" pos="0 0 0" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="stackedmassplane_0.mass1.left" pos="-10.0 0 0" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="stackedmassplane_0.mass1.right" pos="10.0 0 0" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="stackedmassplane_0.mass1.bottom" pos="0 0 -0.05" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<joint name="stackedmassplane_0.mass1.joint" type="free" axis="1 1 1" pos="0 0 0" />
+</body>
+<body name="stackedmassplane_0.plane" pos="0.0 0.0 0.0" quat="0.9659258262890683 0.0 -0.25881904510252074 0.0"><geom name="stackedmassplane_0.plane.geom" type="box" pos="0 0 0" size="100 0.4 0.1" material="reflectance" rgba="0.82745098 0.75686275 0.76470588 1" mass="1.0" quat="0 0 0 1" condim="1" contype="1" conaffinity="1" />
+<site name="stackedmassplane_0.plane.sensor" pos="0 0 0" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="stackedmassplane_0.plane.left" pos="-100.05 0 0.2" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="stackedmassplane_0.plane.right" pos="100.05 0 0.2" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="stackedmassplane_0.plane.left-0" pos="-100.05 0 0.2" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="stackedmassplane_0.plane.right-0" pos="100.05 0 0.2" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="stackedmassplane_0.plane.left-1" pos="-100.05 0 0.35" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+<site name="stackedmassplane_0.plane.right-1" pos="100.05 0 0.35" quat="0.9659258262890683 -0.0 0.25881904510252074 -0.0" />
+</body>
+<body name="fixed_pulley_entity_1" pos="0.0 1.0 0.0" quat="1.0 0.0 0.0 0.0"><site name="fixed_pulley_entity_1.site" pos="0 0 0.0" quat="1.0 -0.0 -0.0 -0.0" />
+</body>
+<body name="mass_with_fixed_pulley_entity_2.fixed_pulley" pos="0.0 2.0 10.0" quat="1.0 0.0 0.0 0.0"><site name="mass_with_fixed_pulley_entity_2.fixed_pulley.site" pos="0 0 0.0" quat="1.0 -0.0 -0.0 -0.0" />
+</body>
+<body name="mass_with_fixed_pulley_entity_2.mass_plane.mass0" pos="34.21911533973316 2.0 93.76624670963011" quat="0.8191520442889918 0.0 -0.573576436351046 0.0">
+<geom name="mass_with_fixed_pulley_entity_2.mass_plane.mass0.geom" type="box" pos="0 0 0" size="0.1 0.1 0.1" rgba="0.5 0.5 1.0 1.0" mass="200" quat="0 0 0 1" condim="1" contype="1" conaffinity="1" />
+<site name="mass_with_fixed_pulley_entity_2.mass_plane.mass0.top-1" pos="0.0 0 0.1" quat="0.8191520442889919 -0.0 0.5735764363510462 -0.0" />
+<site name="mass_with_fixed_pulley_entity_2.mass_plane.mass0.sensor" pos="0 0 0" quat="0.8191520442889919 -0.0 0.5735764363510462 -0.0" />
+<site name="mass_with_fixed_pulley_entity_2.mass_plane.mass0.center" pos="0 0 0" quat="0.8191520442889919 -0.0 0.5735764363510462 -0.0" />
+<site name="mass_with_fixed_pulley_entity_2.mass_plane.mass0.left" pos="-0.1 0 0" quat="0.8191520442889919 -0.0 0.5735764363510462 -0.0" />
+<site name="mass_with_fixed_pulley_entity_2.mass_plane.mass0.right" pos="0.1 0 0" quat="0.8191520442889919 -0.0 0.5735764363510462 -0.0" />
+<site name="mass_with_fixed_pulley_entity_2.mass_plane.mass0.bottom" pos="0 0 -0.1" quat="0.8191520442889919 -0.0 0.5735764363510462 -0.0" />
+<joint name="mass_with_fixed_pulley_entity_2.mass_plane.mass0.joint" type="free" axis="1 1 1" pos="0 0 0" />
+</body>
+<body name="mass_with_fixed_pulley_entity_2.mass_plane.plane" pos="34.40705386389034 2.0 93.69784268096498" quat="0.8191520442889918 0.0 -0.573576436351046 0.0"><geom name="mass_with_fixed_pulley_entity_2.mass_plane.plane.geom" type="box" pos="0 0 0" size="100 0.4 0.1" material="reflectance" rgba="0.82745098 0.75686275 0.76470588 1" mass="1.0" quat="0 0 0 1" condim="1" contype="1" conaffinity="1" />
+<site name="mass_with_fixed_pulley_entity_2.mass_plane.plane.sensor" pos="0 0 0" quat="0.8191520442889919 -0.0 0.5735764363510462 -0.0" />
+<site name="mass_with_fixed_pulley_entity_2.mass_plane.plane.left" pos="-100.05 0 0.2" quat="0.8191520442889919 -0.0 0.5735764363510462 -0.0" />
+<site name="mass_with_fixed_pulley_entity_2.mass_plane.plane.right" pos="100.05 0 0.2" quat="0.8191520442889919 -0.0 0.5735764363510462 -0.0" />
+<site name="mass_with_fixed_pulley_entity_2.mass_plane.plane.additional_site-0" pos="-100.00301536896069 0.0 0.21710100716627778" quat="0.8191520442889919 -0.0 0.5735764363510462 -0.0" />
+</body>
+
+</worldbody><tendon>
+<spatial name="spatial_0" width="0.01" rgba="0.9686 0.8392 0.8784 1" range="0 190.10560953789647" limited="true" solimplimit="0.99 1 0.001 0.01 20" solreflimit="0.02 1">
+<site site="stackedmassplane_0.mass1.right" />
+<site site="stackedmassplane_0.plane.right-1" />
+<site site="fixed_pulley_entity_1.site" />
+</spatial>
+</tendon>
+<tendon>
+<spatial name="spatial_1" width="0.01" rgba="0.9686 0.8392 0.8784 1" range="0 285.696730684633" limited="true" solimplimit="0.99 1 0.001 0.01 20" solreflimit="0.02 1">
+<site site="stackedmassplane_0.mass0.right" />
+<site site="stackedmassplane_0.plane.right-0" />
+<site site="mass_with_fixed_pulley_entity_2.fixed_pulley.site" />
+<site site="mass_with_fixed_pulley_entity_2.mass_plane.plane.additional_site-0" />
+<site site="mass_with_fixed_pulley_entity_2.mass_plane.plane.left" />
+<site site="mass_with_fixed_pulley_entity_2.mass_plane.mass0.left" />
+</spatial>
+</tendon>
+
+        
+        <sensor>
+            
+        </sensor>
+        <custom>
+            
+        </custom>
+        <contact>
+            
+        </contact>
+        <actuator>
+            
+        </actuator>
+    </mujoco>

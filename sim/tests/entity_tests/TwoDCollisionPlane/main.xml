@@ -1,0 +1,57 @@
+<mujoco>
+            <compiler angle="radian" autolimits="true" />
+            <compiler meshdir="asset" texturedir="asset" assetdir="asset" />
+            <option gravity="0 0 -9.81" />
+            <default class="main">
+            <geom friction="0 0 0" solimp="0.9 1 0.001 0.01 20" solref="0.02 1" condim="1" />
+        </default>
+        
+        <visual>
+            <headlight diffuse="0.7 0.7 0.7" ambient="0.5 0.5 0.5" />
+            <global offwidth="1920" offheight="1080" />
+        </visual>
+        
+        <asset>
+            <texture type="skybox" builtin="gradient" rgb1="0 0.5 0.7" rgb2="0 0 0" width="512" height="512" />
+            <texture type="2d" name="checks1" builtin="checker" rgb1="1 1 1" rgb2="0 0 0" width="256" height="256" />
+            <material name="test_color" texture="checks1" texuniform="true" texrepeat="2 2" />
+            <material name="reflectance" reflectance=".4" />
+            <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1="1.0 0.6235 0.1098" rgb2="1.0 0.749 0.4118" />
+            <texture name="white-texture-background" type="2d" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.white-texture-background.png" content_type="image/png" />
+            <material name="pulley" texture="grid" texrepeat="2 2" texuniform="true" />
+            
+            
+        </asset>
+        <worldbody><body name="twodcollisionplane_0.sphere-0" pos="3.72 -2.909845356715714 -1.6799999999999997" quat="1.0 0.0 0.0 0.0"><geom name="twodcollisionplane_0.sphere-0.geom" type="sphere" pos="0 0 0" size="0.13" material="reflectance" rgba="0.7939032462584333 0.4017260723617209 0.3926602565188379 1.0" mass="2" quat="0 0 0 1" contype="1" conaffinity="1" />
+<site name="twodcollisionplane_0.sphere-0.site" pos="0 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="twodcollisionplane_0.sphere-0.center_site" pos="0 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<joint name="twodcollisionplane_0.sphere-0.joint-1" type="slide" axis="0 0.8660254037844387 0.49999999999999994" pos="0 0 0" />
+<joint name="twodcollisionplane_0.sphere-0.joint-2" type="slide" axis="1 0 0" pos="0 0 0" />
+</body>
+<body name="twodcollisionplane_0.sphere-1" pos="2.15 -2.0438199529312753 -1.1799999999999997" quat="1.0 0.0 0.0 0.0"><geom name="twodcollisionplane_0.sphere-1.geom" type="sphere" pos="0 0 0" size="0.28" material="reflectance" rgba="0.42392076496593306 0.6249223453743648 0.8016506421384342 1.0" mass="5" quat="0 0 0 1" contype="1" conaffinity="1" />
+<site name="twodcollisionplane_0.sphere-1.site" pos="0 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="twodcollisionplane_0.sphere-1.center_site" pos="0 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<joint name="twodcollisionplane_0.sphere-1.joint-1" type="slide" axis="0 0.8660254037844387 0.49999999999999994" pos="0 0 0" />
+<joint name="twodcollisionplane_0.sphere-1.joint-2" type="slide" axis="1 0 0" pos="0 0 0" />
+</body>
+<body name="twodcollisionplane_0.sphere-2" pos="1.92 -1.5068842025849234 -0.8699999999999999" quat="1.0 0.0 0.0 0.0"><geom name="twodcollisionplane_0.sphere-2.geom" type="sphere" pos="0 0 0" size="0.27" material="reflectance" rgba="0.6303694870799497 0.8295739830280978 0.4693346267634652 1.0" mass="4" quat="0 0 0 1" contype="1" conaffinity="1" />
+<site name="twodcollisionplane_0.sphere-2.site" pos="0 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="twodcollisionplane_0.sphere-2.center_site" pos="0 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<joint name="twodcollisionplane_0.sphere-2.joint-1" type="slide" axis="0 0.8660254037844387 0.49999999999999994" pos="0 0 0" />
+<joint name="twodcollisionplane_0.sphere-2.joint-2" type="slide" axis="1 0 0" pos="0 0 0" />
+</body>
+</worldbody><sensor>
+            
+        </sensor>
+        <custom>
+            <text name="coefficient_restitution" data="(twodcollisionplane_0.sphere-0, twodcollisionplane_0.sphere-1, 0.5)" />
+
+        </custom>
+        <contact>
+            <pair geom1="twodcollisionplane_0.sphere-0.geom" geom2="twodcollisionplane_0.sphere-1.geom" solref="-2500 0" />
+
+        </contact>
+        <actuator>
+            
+        </actuator>
+    </mujoco>

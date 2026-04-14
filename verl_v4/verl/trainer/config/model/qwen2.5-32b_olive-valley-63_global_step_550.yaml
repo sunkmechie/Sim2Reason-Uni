@@ -1,0 +1,6 @@
+# @package _global_
+
+solve_locally: True
+use_openrouter: False
+model_name: zheyangqin/qwen2.5-32b_olive-valley-63_global_step_550
+max_model_len: null

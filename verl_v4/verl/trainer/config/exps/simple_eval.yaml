@@ -1,0 +1,5 @@
+# @package _global_
+
+data:
+  return_raw_chat: true
+

@@ -1,0 +1,94 @@
+<mujoco>
+            <compiler angle="radian" autolimits="true" />
+            <compiler meshdir="asset" texturedir="asset" assetdir="asset" />
+            <option gravity="0 0 -9.81" />
+            <default class="main">
+            <geom friction="0 0 0" solimp="0.9 1 0.001 0.01 20" solref="0.02 1" condim="1" />
+        </default>
+        
+        <visual>
+            <headlight diffuse="0.7 0.7 0.7" ambient="0.5 0.5 0.5" />
+            <global offwidth="1920" offheight="1080" />
+        </visual>
+        
+        <asset>
+            <texture type="skybox" builtin="gradient" rgb1="0 0.5 0.7" rgb2="0 0 0" width="512" height="512" />
+            <texture type="2d" name="checks1" builtin="checker" rgb1="1 1 1" rgb2="0 0 0" width="256" height="256" />
+            <material name="test_color" texture="checks1" texuniform="true" texrepeat="2 2" />
+            <material name="reflectance" reflectance=".4" />
+            <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1="1.0 0.6235 0.1098" rgb2="1.0 0.749 0.4118" />
+            <texture name="white-texture-background" type="2d" file="/home/aryansatpathy/DevStuff/cmu/PHO/sim/geom_sources/fixed_sources/rocket/rocket.white-texture-background.png" content_type="image/png" />
+            <material name="pulley" texture="grid" texrepeat="2 2" texuniform="true" />
+            
+            
+        </asset>
+        <worldbody><body name="springmassplaneentity_0.mass-0" pos="-1.21 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+<geom name="springmassplaneentity_0.mass-0.geom" type="box" pos="0 0 0" size="0.1 0.1 0.1" rgba="0 1 0 1" mass="2.24" quat="0 0 0 1" condim="1" contype="1" conaffinity="1" />
+<site name="springmassplaneentity_0.mass-0.top-1" pos="0.0 0 0.1" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.mass-0.sensor" pos="0 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.mass-0.center" pos="0 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.mass-0.left" pos="-0.1 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.mass-0.right" pos="0.1 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.mass-0.bottom" pos="0 0 -0.1" quat="1.0 -0.0 -0.0 -0.0" />
+<joint name="springmassplaneentity_0.mass-0.joint-x" type="slide" axis="1 0 0" pos="0 0 0" />
+<joint name="springmassplaneentity_0.mass-0.joint-z" type="slide" axis="0.0 0 1.0" pos="0 0 0" />
+</body>
+<body name="springmassplaneentity_0.mass-1" pos="0.14 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+<geom name="springmassplaneentity_0.mass-1.geom" type="box" pos="0 0 0" size="0.1 0.1 0.1" rgba="0 1 0 1" mass="2.69" quat="0 0 0 1" condim="1" contype="1" conaffinity="1" />
+<site name="springmassplaneentity_0.mass-1.top-1" pos="0.0 0 0.1" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.mass-1.sensor" pos="0 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.mass-1.center" pos="0 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.mass-1.left" pos="-0.1 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.mass-1.right" pos="0.1 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.mass-1.bottom" pos="0 0 -0.1" quat="1.0 -0.0 -0.0 -0.0" />
+<joint name="springmassplaneentity_0.mass-1.joint-x" type="slide" axis="1 0 0" pos="0 0 0" />
+<joint name="springmassplaneentity_0.mass-1.joint-z" type="slide" axis="0.0 0 1.0" pos="0 0 0" />
+</body>
+<body name="springmassplaneentity_0.mass-2" pos="0.95 0.0 0.0" quat="1.0 0.0 0.0 0.0">
+<geom name="springmassplaneentity_0.mass-2.geom" type="box" pos="0 0 0" size="0.1 0.1 0.1" rgba="0 1 0 1" mass="2.58" quat="0 0 0 1" condim="1" contype="1" conaffinity="1" />
+<site name="springmassplaneentity_0.mass-2.top-1" pos="0.0 0 0.1" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.mass-2.sensor" pos="0 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.mass-2.center" pos="0 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.mass-2.left" pos="-0.1 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.mass-2.right" pos="0.1 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.mass-2.bottom" pos="0 0 -0.1" quat="1.0 -0.0 -0.0 -0.0" />
+<joint name="springmassplaneentity_0.mass-2.joint-x" type="slide" axis="1 0 0" pos="0 0 0" />
+<joint name="springmassplaneentity_0.mass-2.joint-z" type="slide" axis="0.0 0 1.0" pos="0 0 0" />
+</body>
+<body name="springmassplaneentity_0.plane" pos="0.0 0.0 -0.2" quat="1.0 0.0 0.0 0.0"><geom name="springmassplaneentity_0.plane.geom" type="box" pos="0 0 0" size="100 2 0.1" material="reflectance" rgba="0.82745098 0.75686275 0.76470588 1" mass="1.0" quat="0 0 0 1" condim="1" contype="1" conaffinity="1" />
+<site name="springmassplaneentity_0.plane.sensor" pos="0 0 0" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.plane.left" pos="-100.05 0 0.2" quat="1.0 -0.0 -0.0 -0.0" />
+<site name="springmassplaneentity_0.plane.right" pos="100.05 0 0.2" quat="1.0 -0.0 -0.0 -0.0" />
+</body>
+</worldbody><tendon>
+<spatial name="springmassplaneentity_0.spring-0" width="0.01" rgba="0 1 0 1" stiffness="75.47" springlength="1.41" damping="10.37" limited="false" solimplimit="0.99 1 0.001 0.01 20" solreflimit="0.02 1">
+<site site="springmassplaneentity_0.mass-0.center" />
+<site site="springmassplaneentity_0.mass-1.center" />
+</spatial>
+</tendon>
+<tendon>
+<spatial name="springmassplaneentity_0.spring-1" width="0.01" rgba="0 1 0 1" stiffness="185.38" springlength="0.52" damping="10.37" limited="false" solimplimit="0.99 1 0.001 0.01 20" solreflimit="0.02 1">
+<site site="springmassplaneentity_0.mass-1.center" />
+<site site="springmassplaneentity_0.mass-2.center" />
+</spatial>
+</tendon>
+<tendon>
+<spatial name="springmassplaneentity_0.spring-2" width="0.01" rgba="0 1 0 1" stiffness="161.85" springlength="1.88" damping="10.37" limited="false" solimplimit="0.99 1 0.001 0.01 20" solreflimit="0.02 1">
+<site site="springmassplaneentity_0.mass-0.center" />
+<site site="springmassplaneentity_0.mass-2.center" />
+</spatial>
+</tendon>
+
+        <sensor>
+            
+        </sensor>
+        <custom>
+            
+        </custom>
+        <contact>
+            
+        </contact>
+        <actuator>
+            
+        </actuator>
+    </mujoco>

@@ -1,0 +1,4 @@
+# @package _global_
+
+solve_locally: False
+model_name: o1

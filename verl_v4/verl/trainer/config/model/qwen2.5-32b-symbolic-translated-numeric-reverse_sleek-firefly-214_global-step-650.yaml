@@ -1,0 +1,6 @@
+# @package _global_
+
+solve_locally: True
+use_openrouter: False
+model_name: zheyangqin/qwen2.5-32b-symbolic-translated-numeric-reverse_sleek-firefly-214_global-step-650
+max_model_len: null

@@ -1,0 +1,28 @@
+working_dir: ./
+excludes:
+  - "**/.git/**"
+  - "*.pptx"
+  - "*.zip"
+  - "*.tar"
+  - "**/__pycache__/**"
+  - "*.mp4"
+  - "*.npy"
+  - "*.log"
+  - "*.ckpt"
+  - "**/DSLs/**"
+  - "*.xml"
+  - "*.gif"
+  - "*.err"
+  - "*.out"
+  - "**/sbatch_logs/"
+  - "**/wandb/"
+  - "*.json"
+  - "!**/cost.json"  # llm/utils/cost.json has to be included, otherwise runtime error will be raised
+  - "*.csv"
+env_vars:
+  TORCH_NCCL_AVOID_RECORD_STREAMS: "1"
+  # VLLM_ATTENTION_BACKEND: "XFORMERS"
+  # GLOO_SOCKET_IFNAME: "eth0"
+  # NCCL_SOCKET_IFNAME: "eth0"
+  # NCCL_NET: "IB"
+  # NCCL_IB_HCA: "mlx5_0,mlx5_1,mlx5_2,mlx5_3,mlx5_4,mlx5_5,mlx5_6,mlx5_7"

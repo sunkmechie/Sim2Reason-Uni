@@ -1,0 +1,20 @@
+# @package _global_
+
+data:
+  train_files: ${oc.env:PHO_DATA}/${data_version}/train_${data_version}_rl.parquet
+  val_files: 
+  - ${oc.env:PHO_DATA}/${data_version}/test_${data_version}_rl.parquet
+  - ${oc.env:PHO_DATA}/ipho/ipho_numeric_validation_no_instruct.parquet
+
+trainer:
+  total_epochs: 50
+
+reward_model:
+  reward_config:
+    # Additional keyword arguments for the reward model
+    # Example: {"train_reward_fn": [fn_1, fn_2], "val_reward_fn": fn1, fn2}
+    # This can be used to pass any extra parameters needed by the reward model.
+    # Multi reward train not supported yet
+    train_reward_fn: "val_reward_fn"
+    val_reward_fns: 
+    - "val_reward_fn"

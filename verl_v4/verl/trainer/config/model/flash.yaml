@@ -1,0 +1,5 @@
+# @package _global_
+
+solve_locally: False
+use_openrouter: True
+model_name: google/gemini-flash-1.5
