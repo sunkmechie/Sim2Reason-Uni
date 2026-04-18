@@ -479,6 +479,14 @@ class SceneGenerator:
 
         return scene_yaml
 
+    def generate_scene_ir(self):
+        """
+        Build the current scene through the existing YAML pipeline and expose the
+        backend-neutral IR as a first-class authoring product.
+        """
+        scene_yaml = self.generate_scene_yaml()
+        return parse_scene("", scene_data_dict=scene_yaml).to_ir()
+
     # ==============================
     # 3) Key Function to Generate Entities
     # ==============================

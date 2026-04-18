@@ -11,6 +11,7 @@ import argparse
 from collections import defaultdict
 
 from sim.utils import replace_all, create_mappings, parse_mtl_to_mujoco, find_values
+from sim.ir import ConnectionEndpointIR, ConnectionIR, SceneIR
 
 st = ipdb.set_trace
 
@@ -606,6 +607,50 @@ class Scene:
             actuators=self.actuators,
             custom_sensors=self.custom_sensors,
             tag=self.tag,
+        )
+
+    def to_ir(self) -> SceneIR:
+        entities_ir = tuple(entity.to_ir() for entity in self.entities)
+        connections_ir = []
+        for connection_idx, tendon_connections in enumerate(self.connections):
+            endpoints = tuple(
+                ConnectionEndpointIR(
+                    entity_name=entity_name,
+                    direction=direction.value if hasattr(direction, "value") else str(direction),
+                    connecting_point=connecting_point.value if hasattr(connecting_point, "value") else str(connecting_point),
+                    connecting_point_seq_id=connecting_point_seq_id,
+                )
+                for entity_name, direction, connecting_point, connecting_point_seq_id in tendon_connections
+            )
+            connections_ir.append(
+                ConnectionIR(
+                    connection_id=f"{self.name}.connection-{connection_idx}",
+                    tendon=endpoints,
+                )
+            )
+
+        tendons_ir = tuple(tendon.to_ir() for tendon in self.tendons)
+        sensors_ir = tuple(sensor.to_ir() for sensor in self.sensors)
+        actuators_ir = tuple(actuator.to_ir() for actuator in self.actuators)
+
+        metadata = {
+            "tag": getattr(self, "tag", None),
+            "name_mapping": dict(self.name_mapping),
+            "constant_forces": dict(self.constant_force_dict),
+            "init_velocities": dict(self.init_velocity_dict),
+            "springs": [getattr(spring, "name", None) for spring in self.springs],
+        }
+
+        return SceneIR(
+            scene_id=self.name,
+            name=self.name,
+            gravity=self.gravity,
+            metadata=metadata,
+            entities=entities_ir,
+            connections=tuple(connections_ir),
+            tendons=tendons_ir,
+            sensors=sensors_ir,
+            actuators=actuators_ir,
         )
 
     def randomize_entities(self, vary_idx=None):

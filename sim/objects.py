@@ -109,6 +109,20 @@ class Geom(Object):
     def get_body_name(self) -> str:
         return '_'.join([self.name, self.geom][self.name is None].split('_')[:-1])
 
+    def to_ir(self):
+        from sim.ir import GeomIR, PoseIR
+
+        return GeomIR(
+            geom_id=self.name or "",
+            name=self.name or "",
+            geom_type=self.type,
+            pose=PoseIR(position=self.pos or (0.0, 0.0, 0.0), quaternion=self.quat),
+            size=tuple(self.size) if self.size is not None else None,
+            material=self.material,
+            rgba=tuple(self.rgba) if self.rgba is not None else None,
+            mass=self.mass,
+        )
+
 
 """
 <equality>
@@ -186,6 +200,17 @@ class Site(Object):
     def set_body_name(self, body_name: str) -> None:
         self.__body_name = body_name
 
+    def to_ir(self, role: str | None = None):
+        from sim.ir import PoseIR, SiteIR
+
+        return SiteIR(
+            site_id=self.name or "",
+            name=self.name or "",
+            pose=PoseIR(position=self.pos or (0.0, 0.0, 0.0), quaternion=self.quat),
+            body_name=self.get_body_name(),
+            role=role,
+        )
+
 
 class Joint(Object):
     """
@@ -199,6 +224,17 @@ class Joint(Object):
         self.type = joint_type
         self.axis = axis
         self.pos = pos
+
+    def to_ir(self):
+        from sim.ir import JointIR, PoseIR
+
+        return JointIR(
+            joint_id=self.name or "",
+            name=self.name or "",
+            joint_type=self.type,
+            axis=tuple(self.axis),
+            pose=PoseIR(position=tuple(self.pos), quaternion=None),
+        )
 
 
 class Spatial(Object):
@@ -248,6 +284,29 @@ class Spatial(Object):
         """
         self.sensor["force"] = f"{self.name}_tension_sensor"
         return [Custom(name=f"{self.name}_tension_sensor", data=self.name)]
+
+    def to_ir_path(self):
+        from sim.ir import TendonAnchorIR
+
+        path = []
+        for element in self.elements:
+            if isinstance(element, Site):
+                path.append(
+                    TendonAnchorIR(
+                        anchor_id=element.name or "",
+                        anchor_type="site",
+                        body_name=element.get_body_name(),
+                    )
+                )
+            elif isinstance(element, Geom):
+                path.append(
+                    TendonAnchorIR(
+                        anchor_id=element.name or "",
+                        anchor_type="geom",
+                        body_name=element.get_body_name() if hasattr(element, "get_body_name") else None,
+                    )
+                )
+        return tuple(path)
 
     @staticmethod
     def combine(
@@ -358,6 +417,24 @@ class Tendon(Object):
     def get_description(self, simDSL2nlq = False):
         return sum([spatial.get_description() for spatial in self.spatials], [])
 
+    def to_ir(self):
+        from sim.ir import TendonIR
+
+        segments = tuple(spatial.to_ir_path() for spatial in self.spatials)
+        stiffness = self.spatials[0].stiffness if self.spatials else None
+        spring_length = self.spatials[0].springlength if self.spatials else None
+        damping = self.spatials[0].damping if self.spatials else None
+
+        return TendonIR(
+            tendon_id=self.name or "",
+            name=self.name or "",
+            segments=segments,
+            stiffness=stiffness,
+            spring_length=spring_length,
+            damping=damping,
+            is_spring=self.is_spring,
+        )
+
 
 class Sensor(Object):
     def __init__(
@@ -392,6 +469,17 @@ class Sensor(Object):
             )
         else:
             raise ValueError(f"Sensor type {self.sensor_type} is not supported.")
+
+    def to_ir(self):
+        from sim.ir import SensorIR
+
+        target = self.site_name or self.tendon_name
+        return SensorIR(
+            sensor_id=self.name,
+            name=self.name,
+            sensor_type=self.sensor_type.value,
+            target=target,
+        )
 
 
 class Custom(object):
@@ -447,6 +535,31 @@ class Actuator(Object):
             actuator_xml += 'biastype="affine" '
             actuator_xml += '/>\n'
         return actuator_xml
+
+    def to_ir(self):
+        from sim.ir import ActuatorIR
+
+        target = self.joint or self.tendon
+        parameters = {}
+        if self.kv is not None:
+            parameters["kv"] = self.kv
+        if self.gainprm is not None:
+            parameters["gainprm"] = self.gainprm
+        if self.biasprm is not None:
+            parameters["biasprm"] = self.biasprm
+        if self.ctrlrange is not None:
+            parameters["ctrlrange"] = tuple(self.ctrlrange)
+        if self.velocity is not None:
+            parameters["velocity"] = self.velocity
+        parameters["ctrllimited"] = self.ctrllimited
+
+        return ActuatorIR(
+            actuator_id=self.name,
+            name=self.name,
+            actuator_type=self.type,
+            target=target,
+            parameters=parameters,
+        )
     
 class Inertial(Object):
     def __init__(

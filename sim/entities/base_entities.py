@@ -836,6 +836,33 @@ class Entity(Body):
 
     def get_shortcut(self):
         return False
+
+    def to_ir(self):
+        from sim.ir import EntityIR, PoseIR
+
+        body_ir = super().to_ir()
+        parameters = {}
+        generate_yaml = getattr(self, "generate_entity_yaml", None)
+        if callable(generate_yaml):
+            try:
+                entity_yaml = generate_yaml(use_random_parameters=False)
+                parameters = dict(entity_yaml.get("parameters", {}))
+            except TypeError:
+                parameters = {}
+            except Exception:
+                parameters = {}
+
+        labels = tuple([self.entity_type] if self.entity_type else [])
+
+        return EntityIR(
+            entity_id=self.name,
+            name=self.name,
+            entity_type=self.entity_type or self.__class__.__name__,
+            pose=PoseIR(position=tuple(self.pos), quaternion=tuple(self.quat)),
+            bodies=(body_ir,),
+            parameters=parameters,
+            labels=labels,
+        )
     
 def get_all_geoms_in_entity(entity: Entity):
     """

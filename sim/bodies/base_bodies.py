@@ -77,6 +77,29 @@ class TendonSequence:
             description += "\t" + child.get_description()
         return description
 
+    def to_ir(self):
+        from sim.ir import TendonAnchorIR
+
+        anchors = []
+        for element in self.get_elements():
+            if isinstance(element, Site):
+                anchors.append(
+                    TendonAnchorIR(
+                        anchor_id=element.name or "",
+                        anchor_type="site",
+                        body_name=element.get_body_name(),
+                    )
+                )
+            elif isinstance(element, Geom):
+                anchors.append(
+                    TendonAnchorIR(
+                        anchor_id=element.name or "",
+                        anchor_type="geom",
+                        body_name=element.get_body_name() if hasattr(element, "get_body_name") else None,
+                    )
+                )
+        return tuple(anchors)
+
 
 def reverse_tendon_sequence(tendon_sequence: TendonSequence):
     tendon_sequence.reverse()
@@ -245,6 +268,34 @@ class Body(Object):
             body_xml += child_body.to_xml() + "\n"
         body_xml += "</body>"
         return body_xml
+
+    def to_ir(self):
+        from sim.ir import BodyIR, PoseIR
+
+        geoms = tuple(geom.to_ir() for geom in self.geoms)
+        sites = tuple(site.to_ir() for site in self.sites)
+        joints = tuple(joint.to_ir() for joint in self.joints)
+        children = tuple(child.to_ir() for child in self.child_bodies)
+
+        metadata = {}
+        if self.constant_force_dict:
+            metadata["constant_forces"] = dict(self.constant_force_dict)
+        if self.init_velocity_dict:
+            metadata["init_velocities"] = dict(self.init_velocity_dict)
+        if self.springs:
+            metadata["springs"] = [getattr(spring, "name", None) for spring in self.springs]
+
+        return BodyIR(
+            body_id=self.name,
+            name=self.name,
+            body_type=getattr(self, "body_type", "body"),
+            pose=PoseIR(position=tuple(self.pos), quaternion=tuple(self.quat)),
+            geoms=geoms,
+            sites=sites,
+            joints=joints,
+            children=children,
+            metadata=metadata,
+        )
 
     def get_constant_forces(self) -> Dict[str, Tuple[float, float, float]]:
         return self.constant_force_dict
