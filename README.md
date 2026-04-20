@@ -154,5 +154,11 @@ Since the verifier used in PHYSICS is not opensource, we use Gemini 2.5 Flash as
 ## Citation
 If you find this work useful in your research, please cite:
 ```bibtex
+@article{prabhudesai2026solving,
+  title={Solving Physics Olympiad via Reinforcement Learning on Physics Simulators},
+  author={Prabhudesai, Mihir and Satpathy, Aryan and Li, Yangmin and Qin, Zheyang and Bhardwaj, Nikash and Zadeh, Amir and Li, Chuan and Fragkiadaki, Katerina and Pathak, Deepak},
+  journal={arXiv preprint arXiv:2604.11805},
+  year={2026}
+}
 
 ```
